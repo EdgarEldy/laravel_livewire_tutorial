@@ -14,5 +14,11 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
-    }
+    },
+    "name": "laravel_livewire_tutorial",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/EdgarEldy/laravel_livewire_tutorial.git",
+    "author": "Edgar Eldy <ed.eldy21@live.com>",
+    "license": "MIT"
 }
