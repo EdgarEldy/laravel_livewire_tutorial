@@ -22,3 +22,6 @@ package-lock.json
 
 # composer.lock
 composer.lock
+
+# app.css
+public/css/app.css
