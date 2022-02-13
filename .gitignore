@@ -28,3 +28,6 @@ public/css/app.css
 
 # app.js
 public/js/app.js
+
+# mix-manifest.json
+public/mix-manifest.json
