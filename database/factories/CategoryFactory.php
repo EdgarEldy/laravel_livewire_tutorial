@@ -14,7 +14,8 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            // Categories fake data for testing
+            'category_name' => $this->faker->name
         ];
     }
 }
