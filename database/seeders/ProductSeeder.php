@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -13,6 +14,9 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // Generate 5 fake products for testing
+        Product::factory()
+            ->count(5)
+            ->create();
     }
 }
