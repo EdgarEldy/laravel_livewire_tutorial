@@ -13,3 +13,21 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# yarn.lock
+yarn.lock
+
+# package-lock.json
+package-lock.json
+
+# composer.lock
+composer.lock
+
+# app.css
+public/css/app.css
+
+# app.js
+public/js/app.js
+
+# mix-manifest.json
+public/mix-manifest.json
