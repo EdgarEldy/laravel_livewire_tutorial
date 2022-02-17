@@ -11,7 +11,7 @@ class dbcreate extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'db:create {name?}';
 
     /**
      * The console command description.
