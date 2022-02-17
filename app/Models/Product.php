@@ -14,4 +14,10 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    // Get orders related to a product
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }
