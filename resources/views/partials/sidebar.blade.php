@@ -4,7 +4,7 @@
                 <svg class="glyph stroked dashboard-dial">
                     <use xlink:href="#stroked-dashboard-dial"></use>
                 </svg>
-                Home</a></li>
+                Dashboard</a></li>
         <li><a href="#">
                 <svg class="glyph stroked calendar">
                     <use xlink:href="#stroked-calendar"></use>
