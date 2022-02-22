@@ -74,6 +74,7 @@
                 <svg class="glyph stroked male-user">
                     <use xlink:href="#stroked-cancel"></use>
                 </svg>
+                Logout
             </a>
             <form id="logout-form" action="#" method="POST" style="display: none;">
                 @csrf
