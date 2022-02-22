@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-@include('inc.head')
+@include('partials.head')
 <body>
-@include('inc.nav')
-@include('inc.sidebar')
+@include('partials.nav')
+@include('partials.sidebar')
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
     <div class="row">
@@ -22,6 +22,7 @@
 <script src="{{asset('js/bootstrap-table.js')}}"></script>
 <script src="{{asset('js/fontawesome.min.js')}}"></script>
 <script src="{{ asset('js/chosen.jquery.min.js') }}"></script>
+<script src="{{ asset('js/lumino.glyphs.js') }}"></script>
 <script>
     !function ($) {
         $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
