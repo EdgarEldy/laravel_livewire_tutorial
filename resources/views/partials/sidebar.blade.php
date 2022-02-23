@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="" href="#">
+                    <a class="" href="{{ route('categories.index') }}">
                         <svg class="glyph stroked chevron-right">
                             <use xlink:href="#stroked-chevron-right">
                             </use>
