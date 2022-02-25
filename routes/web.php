@@ -24,3 +24,6 @@ use Illuminate\Support\Facades\Route;
 
 // Dashboard
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
+
+// Call products route file
+require __DIR__ . '/products.php';
