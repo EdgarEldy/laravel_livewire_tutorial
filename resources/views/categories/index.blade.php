@@ -8,6 +8,7 @@
                    class="btn btn-primary">New</a>
                 <!-- Categories data -->
                 <livewire:categories.data/>
+                <livewire:categories.form/>
             </div>
         </div>
     </div>
