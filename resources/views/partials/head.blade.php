@@ -10,4 +10,7 @@
     <link href="{{asset('css/fontawesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/chosen.min.css')}}" rel="stylesheet">
 
+    <!-- notyf.min.css -->
+    <link rel="stylesheet" href="{{ asset('vendor/notyf/notyf.min.css') }}">
+
 </head>
