@@ -16,3 +16,14 @@
     </div>
 
 @endsection()
+
+@push('scripts')
+    <script>
+        const container = document.getElementById("modalFormCategory");
+        const modal = new bootstrap.Modal(container);
+
+        window.addEventListener("close-modal", ({detail: {modalname}}) => {
+            modal.hide();
+        });
+    </script>
+@endpush
