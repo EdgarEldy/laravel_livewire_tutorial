@@ -23,6 +23,12 @@
 <script src="{{asset('js/fontawesome.min.js')}}"></script>
 <script src="{{ asset('js/chosen.jquery.min.js') }}"></script>
 <script src="{{ asset('js/lumino.glyphs.js') }}"></script>
+
+<!-- Sweet Alerts 2 -->
+<script src="{{ asset('vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+
+<!-- Notyf -->
+<script src="{{ asset('vendor/notyf/notyf.min.js') }}"></script>
 <script>
     !function ($) {
         $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
