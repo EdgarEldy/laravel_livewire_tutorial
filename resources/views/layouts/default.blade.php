@@ -23,6 +23,69 @@
 <script src="{{asset('js/fontawesome.min.js')}}"></script>
 <script src="{{ asset('js/chosen.jquery.min.js') }}"></script>
 <script src="{{ asset('js/lumino.glyphs.js') }}"></script>
+
+<!-- Sweet Alerts 2 -->
+<script src="{{ asset('vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+
+<!-- Notyf -->
+<script src="{{ asset('vendor/notyf/notyf.min.js') }}"></script>
+
+<script>
+    window.addEventListener('notify-success', ({detail: {message}}) => {
+        const notyf = new Notyf({
+            duration: 2000,
+            position: {
+                x: 'right',
+                y: 'top',
+            },
+            types: [
+                {
+                    type: 'info',
+                    background: '#03C04A',
+                    icon: {
+                        className: 'fas fa-check-circle',
+                        tagName: 'span',
+                        color: '#fff'
+                    },
+                    dismissible: false
+                }
+            ]
+        });
+        notyf.open({
+            type: 'info',
+            message: message
+        });
+    });
+
+    window.addEventListener('notify-error', ({detail: {message}}) => {
+        const notyf = new Notyf({
+            duration: 2000,
+            position: {
+                x: 'right',
+                y: 'top',
+            },
+            types: [
+                {
+                    type: 'info',
+                    background: '#ED2939',
+                    icon: {
+                        className: 'fas fa-times-circle',
+                        tagName: 'span',
+                        color: '#fff'
+                    },
+                    dismissible: false
+                }
+            ]
+        });
+        notyf.open({
+            type: 'error',
+            message: message
+        });
+    });
+</script>
+
+@stack('scripts')
+
 <script>
     !function ($) {
         $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
