@@ -29,6 +29,61 @@
 
 <!-- Notyf -->
 <script src="{{ asset('vendor/notyf/notyf.min.js') }}"></script>
+
+<script>
+    window.addEventListener('notify-success', ({detail: {message}}) => {
+        const notyf = new Notyf({
+            duration: 2000,
+            position: {
+                x: 'right',
+                y: 'top',
+            },
+            types: [
+                {
+                    type: 'info',
+                    background: '#03C04A',
+                    icon: {
+                        className: 'fas fa-check-circle',
+                        tagName: 'span',
+                        color: '#fff'
+                    },
+                    dismissible: false
+                }
+            ]
+        });
+        notyf.open({
+            type: 'info',
+            message: message
+        });
+    });
+
+    window.addEventListener('notify-error', ({detail: {message}}) => {
+        const notyf = new Notyf({
+            duration: 2000,
+            position: {
+                x: 'right',
+                y: 'top',
+            },
+            types: [
+                {
+                    type: 'info',
+                    background: '#ED2939',
+                    icon: {
+                        className: 'fas fa-times-circle',
+                        tagName: 'span',
+                        color: '#fff'
+                    },
+                    dismissible: false
+                }
+            ]
+        });
+        notyf.open({
+            type: 'error',
+            message: message
+        });
+    });
+</script>
+
 <script>
     !function ($) {
         $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
