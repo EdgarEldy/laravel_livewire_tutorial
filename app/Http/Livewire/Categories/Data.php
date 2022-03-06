@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class Data extends Component
 {
+    // Add categoriesList listener
+    protected $listeners = ['categoriesList'];
 
     // Creating a categories list function
     public function categoriesList()
