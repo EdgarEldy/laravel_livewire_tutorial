@@ -7,11 +7,19 @@ use Livewire\Component;
 
 class Data extends Component
 {
+
+    // Creating a categories list function
+    public function categoriesList()
+    {
+        $categories = Category::all();
+        return $categories;
+    }
+
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.categories.data',[
-            'categories' => $categories
+        return view('livewire.categories.data', [
+            'categories' => $this->categoriesList()
         ]);
     }
 }
