@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Categories;
 
+use App\Models\Category;
 use Livewire\Component;
 
 class Form extends Component
@@ -23,6 +24,32 @@ class Form extends Component
     public function closeModal()
     {
         $this->reset();
+    }
+
+    // Creating submit function for creting or updating a category
+    public function submit()
+    {
+        // Validate inputs
+        $this->validate();
+
+        $category = $this->category_id ? Category::find($this->category_id) : new Category();
+
+        $category->category_name = $this->category_name;
+        $category->save();
+
+        // Reset inputs
+        $this->reset();
+
+        $this->dispatchBrowserEvent('close-modal', [
+            'modalname' => "modalFormCategory"
+        ]);
+
+        $this->dispatchBrowserEvent('notify-success', [
+            'message' => "Category has been saved successfully !"
+        ]);
+
+        $this->emit('categoriesList');
+
     }
 
     public function render()
