@@ -17,7 +17,7 @@ class Data extends Component
     // Creating a categories list function
     public function categoriesList()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(10);
         return $categories;
     }
 
