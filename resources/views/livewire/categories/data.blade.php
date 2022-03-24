@@ -1,7 +1,5 @@
 <div>
-    <table data-toggle="table" data-url="" data-show-refresh="true" data-show-toggle="true"
-           data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true"
-           data-sort-name="name" data-sort-order="desc">
+    <table class="table table-centered table-nowrap mb-0 rounded">
         <thead>
         <tr>
             <th>Id</th>
