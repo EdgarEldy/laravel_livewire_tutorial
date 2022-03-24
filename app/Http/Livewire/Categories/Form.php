@@ -53,6 +53,15 @@ class Form extends Component
 
     }
 
+    // Get category to update in the modal
+    public function editCategory(Category $category)
+    {
+        $this->category_id = $category->id;
+        $this->category_name = $category->category_name;
+
+        $this->dispatchBrowserEvent('open-modal');
+    }
+
     public function render()
     {
         return view('livewire.categories.form');
