@@ -15,5 +15,6 @@
 
     <!-- sweeetalert2.min.css -->
     <link rel="stylesheet" href="{{ asset('vendor/sweetalert2/dist/sweetalert2.min.css') }}">
+    <livewire:styles />
 
 </head>
