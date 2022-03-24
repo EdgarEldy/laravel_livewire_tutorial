@@ -8,7 +8,8 @@ use Livewire\Component;
 class Form extends Component
 {
     // Public properties
-    public $category_id, $category_name;
+    public $category_id;
+    public $category_name;
 
     // Define rules
     protected $rules;
