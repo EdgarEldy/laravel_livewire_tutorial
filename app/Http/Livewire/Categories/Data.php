@@ -4,9 +4,13 @@ namespace App\Http\Livewire\Categories;
 
 use App\Models\Category;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Data extends Component
 {
+    // Setting up pagination trait
+    use WithPagination;
+
     // Add categoriesList listener
     protected $listeners = ['categoriesList'];
 
