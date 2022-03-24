@@ -1,4 +1,4 @@
-<div wire:ignore:self id="modalFormCategory" data-backdrop="static" data-keyboard="false" aria-hidden="true"
+<div wire:ignore.self id="modalFormCategory" data-backdrop="static" data-keyboard="false" aria-hidden="true"
      aria-labelledby="addNew" class="modal fade" role="dialog"
      tabindex="-1">
     <div class="modal-dialog" role="document">
