@@ -14,6 +14,9 @@ class Form extends Component
     // Define rules
     protected $rules;
 
+    // Add editCategory event listener
+    protected $listeners = ['editCategory'];
+
     public function hydrate()
     {
         $this->rules = [
