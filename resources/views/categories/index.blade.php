@@ -25,5 +25,9 @@
         window.addEventListener("close-modal", ({detail: {modalname}}) => {
             modal.hide();
         });
+
+        window.addEventListener('open-modal', () => {
+            modal.show();
+        });
     </script>
 @endpush
