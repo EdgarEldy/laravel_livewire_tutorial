@@ -14,8 +14,6 @@
                 <td>{{$category->category_name}}</td>
                 <td>
                     <div class="card-footer">
-                        <a href="categories/edit/{{$category->id}}"
-                           class="btn btn-primary">Edit</a>
                         <form action="categories/destroy/{{$category->id}}" method="post">
                             @csrf
                             <button type="submit"
