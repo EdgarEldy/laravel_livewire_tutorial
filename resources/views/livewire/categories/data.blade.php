@@ -14,7 +14,10 @@
                 <td>{{$category->category_name}}</td>
                 <td>
                     <div class="card-footer">
-                        <button type="button" class="btn btn-primary" wire:click="$emit('editCategory', {{ $category->id }})">Edit</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#modalFormCategory"
+                                wire:click="$emit('editCategory', {{ $category->id }})">Edit
+                        </button>
                         <form action="categories/destroy/{{$category->id}}" method="post">
                             @csrf
                             <button type="submit"
