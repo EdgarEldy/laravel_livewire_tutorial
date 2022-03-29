@@ -21,6 +21,17 @@ class Data extends Component
         return $categories;
     }
 
+    // Remove a category
+    public function delete(Category $category)
+    {
+        $category->delete();
+
+        // Add notify flash message
+        $this->dispatchBrowserEvent('notify-success', [
+            'message' => 'Category has been removed successfully !'
+        ]);
+    }
+
     public function render()
     {
         $categories = Category::all();
