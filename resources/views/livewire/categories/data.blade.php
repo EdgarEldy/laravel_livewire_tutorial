@@ -18,13 +18,9 @@
                                 data-target="#modalFormCategory"
                                 wire:click="$emit('editCategory', {{ $category->id }})">Edit
                         </button>
-                        <form action="categories/destroy/{{$category->id}}" method="post">
-                            @csrf
-                            <button type="submit"
-                                    onclick="return confirm('Are you sure you want to delete this category ?')"
-                                    class="btn btn-danger btn-sm">Delete
-                            </button>
-                        </form>
+                        <button type="button" class="btn btn-danger btn-sm"
+                                wire:click="$emit('popupDelete', {{ $category->id }})">Delete
+                        </button>
                     </div>
                 </td>
             </tr>
