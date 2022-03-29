@@ -29,3 +29,27 @@
     </table>
     {{ $categories->links() }}
 </div>
+
+
+@push('scripts')
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+
+        @this.on('popupDelete', categoryId => {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Do you want delete this category ?',
+                showCancelButton: true,
+                confirmButtonColor: '#E11D48',
+                cancelButtonColor: '##1F2937',
+                confirmButtonText: 'Remove',
+                cancelButtonText: 'Close'
+            }).then((result) => {
+                if (result.value) {
+                @this.call('delete', categoryId)
+                }
+            });
+        });
+        })
+    </script>
+@endpush
