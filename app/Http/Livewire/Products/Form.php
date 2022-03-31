@@ -15,6 +15,19 @@ class Form extends Component
     // Setting up rules
     protected $rules;
 
+    // Add editProduct event listener
+    protected $listeners = ['editProduct'];
+
+    // Add validations
+    public function hydrate()
+    {
+        $this->rules = [
+            'category_id' => ['required'],
+            'product_name' => ['required'],
+            'unit_price' => ['required']
+        ];
+    }
+
     public function render()
     {
         return view('livewire.products.form');
