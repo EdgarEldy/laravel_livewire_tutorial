@@ -11,7 +11,10 @@ class Form extends Component
     public $category_id;
     public $product_name;
     public $unit_price;
-    
+
+    // Setting up rules
+    protected $rules;
+
     public function render()
     {
         return view('livewire.products.form');
