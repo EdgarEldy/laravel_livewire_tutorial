@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label>Unit price :</label>
-                            <input type="text" wire:model="unit_price"
+                            <input type="number" wire:model="unit_price"
                                    class="form-control @error('unit_price') is-invalid @enderror">
                             @error('unit_price')
                             <div class="invalid-feedback">
