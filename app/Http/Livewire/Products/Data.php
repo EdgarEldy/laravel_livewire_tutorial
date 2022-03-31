@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 class Data extends Component
 {
     use WithPagination;
-    
+
     // Add productsList listener
     public $listeners = ['productsList'];
 
@@ -22,6 +22,8 @@ class Data extends Component
 
     public function render()
     {
-        return view('livewire.products.data');
+        return view('livewire.products.data', [
+            'products' => $this->productsList()
+        ]);
     }
 }
