@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Products;
 
+use App\Models\Category;
 use Livewire\Component;
 
 class Form extends Component
@@ -36,6 +37,8 @@ class Form extends Component
 
     public function render()
     {
-        return view('livewire.products.form');
+        return view('livewire.products.form', [
+            'categories' => Category::all()
+        ]);
     }
 }
