@@ -64,6 +64,17 @@ class Form extends Component
 
     }
 
+    // Get product to update in the modal
+    public function editProduct(Product $product)
+    {
+        $this->category_id = $product->id;
+        $this->product_id = $product->id;
+        $this->product_name = $product->product_name;
+        $this->unit_price = $product->unit_price;
+
+        $this->dispatchBrowserEvent('open-modal');
+    }
+
     public function render()
     {
         return view('livewire.products.form', [
