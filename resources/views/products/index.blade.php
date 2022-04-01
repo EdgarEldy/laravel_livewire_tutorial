@@ -2,15 +2,14 @@
 @section('content')
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Product categories</div>
+            <div class="panel-heading">Products List</div>
             <div class="panel-body">
-                <button type="button" data-toggle="modal" data-target="#modalFormCategory"
+                <button type="button" data-toggle="modal" data-target="#modalFormProduct"
                         class="btn btn-primary">
                     New
                 </button>
-                <!-- Categories data -->
-                <livewire:categories.data/>
-                <livewire:categories.form/>
+                <livewire:products.data/>
+                <livewire:products.form/>
             </div>
         </div>
     </div>
@@ -19,7 +18,7 @@
 
 @push('scripts')
     <script>
-        const container = document.getElementById("modalFormCategory");
+        const container = document.getElementById("modalFormProduct");
         const modal = new bootstrap.Modal(container);
 
         window.addEventListener("close-modal", ({detail: {modalname}}) => {

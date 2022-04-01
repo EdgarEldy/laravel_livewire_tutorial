@@ -23,7 +23,7 @@
             </a>
             <ul class="children collapse" id="sub-item-1">
                 <li>
-                    <a class="" href="#">
+                    <a class="" href="{{ route('products.index') }}">
                         <svg class="glyph stroked chevron-right">
                             <use xlink:href="#stroked-chevron-right">
                             </use>
