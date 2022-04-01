@@ -20,6 +20,17 @@ class Data extends Component
         return $products;
     }
 
+    // Remove a product
+    public function delete(Product $product)
+    {
+        $product->delete();
+
+        // Add notify flash message
+        $this->dispatchBrowserEvent('notify-success', [
+            'message' => 'Product has been removed successfully !'
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.products.data', [
