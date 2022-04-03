@@ -9,6 +9,9 @@ class Data extends Component
 {
     // Setting up pagination trait
     use WithPagination;
+    
+    // Add customersList event listener
+    protected $listeners= ['customersList'];
 
     public function render()
     {
