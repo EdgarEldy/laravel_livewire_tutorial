@@ -17,6 +17,9 @@ class Form extends Component
     // Define rules
     protected $rules;
 
+    // Add editCustomer event listener
+    protected $listeners = ['editCustomer'];
+
     public function render()
     {
         return view('livewire.customers.form');
