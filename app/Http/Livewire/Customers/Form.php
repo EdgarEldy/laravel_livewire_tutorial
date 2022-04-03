@@ -14,6 +14,9 @@ class Form extends Component
     public $email;
     public $address;
 
+    // Define rules
+    protected $rules;
+
     public function render()
     {
         return view('livewire.customers.form');
