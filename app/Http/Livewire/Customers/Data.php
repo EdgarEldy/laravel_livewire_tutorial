@@ -23,6 +23,8 @@ class Data extends Component
 
     public function render()
     {
-        return view('livewire.customers.data');
+        return view('livewire.customers.data', [
+            'customers' => $this->customersList()
+        ]);
     }
 }
