@@ -20,6 +20,18 @@ class Form extends Component
     // Add editCustomer event listener
     protected $listeners = ['editCustomer'];
 
+    // Setting up validations rules
+    public function hydrate()
+    {
+        $this->rules = [
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'tel' => ['required'],
+            'email' => ['required'],
+            'address' => ['required'],
+        ];
+    }
+
     public function render()
     {
         return view('livewire.customers.form');
