@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Customers;
 
+use App\Models\Customer;
 use Livewire\Component;
 
 class Form extends Component
@@ -36,6 +37,36 @@ class Form extends Component
     public function closeModal()
     {
         $this->reset();
+    }
+
+    // Creating submit function for creating or updating a customers
+    public function submit()
+    {
+        // Validate inputs
+        $this->validate();
+
+        $customer = $this->customer_id ? Customer::find($this->customer_id) : new Customer();
+
+        $customer->first_name = $this->first_name;
+        $customer->last_name = $this->last_name;
+        $customer->tel = $this->tel;
+        $customer->email = $this->email;
+        $customer->address = $this->address;
+        $customer->save();
+
+        // Reset inputs
+        $this->reset();
+
+        $this->dispatchBrowserEvent('close-modal', [
+            'modalname' => "modalFormCustomer"
+        ]);
+
+        $this->dispatchBrowserEvent('notify-success', [
+            'message' => "Customer has been saved successfully !"
+        ]);
+
+        $this->emit('customersList');
+
     }
 
     public function render()
