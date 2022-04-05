@@ -21,6 +21,17 @@ class Data extends Component
         return $customers;
     }
 
+    // Remove a customer
+    public function delete(Customer $customer)
+    {
+        $customer->delete();
+
+        // Add notify flash message
+        $this->dispatchBrowserEvent('notify-success', [
+            'message' => 'Customer has been removed successfully !'
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.customers.data', [
