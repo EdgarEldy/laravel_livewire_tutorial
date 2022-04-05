@@ -24,7 +24,7 @@
                     <div class="card-footer">
                         <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#modalFormCustomer"
-                                wire:click="$emit('editCategory', {{ $customer->id }})">Edit
+                                wire:click="$emit('editCustomer', {{ $customer->id }})">Edit
                         </button>
                         <button type="button" class="btn btn-danger btn-sm"
                                 wire:click="$emit('popupDelete', {{ $customer->id }})">Delete
