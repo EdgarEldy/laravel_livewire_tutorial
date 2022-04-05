@@ -69,6 +69,19 @@ class Form extends Component
 
     }
 
+    // Get customer to update in the modal
+    public function editCustomer(Customer $customer)
+    {
+        $this->customer_id = $customer->id;
+        $this->first_name = $customer->first_name;
+        $this->last_name = $customer->last_name;
+        $this->tel = $customer->tel;
+        $this->email = $customer->email;
+        $this->address = $customer->address;
+
+        $this->dispatchBrowserEvent('open-modal');
+    }
+
     public function render()
     {
         return view('livewire.customers.form');
