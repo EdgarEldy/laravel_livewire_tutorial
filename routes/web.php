@@ -27,3 +27,6 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
 // Call products route file
 require __DIR__ . '/products.php';
+
+// Call customers route file
+require __DIR__ . '/customers.php';

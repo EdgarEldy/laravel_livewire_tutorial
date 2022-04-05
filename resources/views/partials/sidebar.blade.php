@@ -10,7 +10,7 @@
                     <use xlink:href="#stroked-calendar"></use>
                 </svg>
                 Orders</a></li>
-        <li><a href="#">
+        <li><a href="{{ route('customers.index') }}">
                 <svg class="glyph stroked clock">
                     <use xlink:href="#stroked-clock"></use>
                 </svg>
