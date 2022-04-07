@@ -22,6 +22,8 @@ class Data extends Component
 
     public function render()
     {
-        return view('livewire.orders.data');
+        return view('livewire.orders.data', [
+            'orders' => $this->ordersList()
+        ]);
     }
 }
