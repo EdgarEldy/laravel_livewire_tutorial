@@ -15,6 +15,9 @@ class Form extends Component
     public $qty;
     public $total;
 
+    // Setting up rules
+    protected $rules;
+
     public function render()
     {
         return view('livewire.orders.form');
