@@ -18,6 +18,9 @@ class Form extends Component
     // Setting up rules
     protected $rules;
 
+    // Add ordersList listener
+    protected $listeners = ['ordersList'];
+
     public function render()
     {
         return view('livewire.orders.form');
