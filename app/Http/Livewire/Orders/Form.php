@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Orders;
 
+use App\Models\Category;
+use App\Models\Customer;
 use App\Models\Order;
 use Livewire\Component;
 
@@ -68,6 +70,9 @@ class Form extends Component
 
     public function render()
     {
-        return view('livewire.orders.form');
+        return view('livewire.orders.form', [
+            'customers' => Customer::all(),
+            'categories' => Category::all()
+        ]);
     }
 }
