@@ -4,7 +4,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Orders List</div>
             <div class="panel-body">
-                <button type="button" data-toggle="modal" data-target="#modalFormProduct"
+                <button type="button" data-toggle="modal" data-target="#modalFormOrder"
                         class="btn btn-primary">
                     New
                 </button>
