@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Orders;
 
+use App\Models\Order;
 use Livewire\Component;
 
 class Form extends Component
@@ -38,6 +39,32 @@ class Form extends Component
     public function closeModal()
     {
         $this->reset();
+    }
+
+    public function submit()
+    {
+        // Validate input fields
+        $this->validate();
+
+        $order = $this->order_id ? Order::find($this->order_id) : new Order();
+
+        $order->customer_id = $this->customer_id;
+        $order->product_id = $this->product;
+        $order->qty = $this->qty;
+        $order->total = $this->total;
+
+        $order->save();
+
+        // Reset validations
+        $this->reset();
+
+        $this->dispatchBrowserEvent('close-modal',[
+            'modalname' => 'modalFormOrder'
+        ]);
+
+        $this->dispatchBrowserEvent('notify-success', [
+            'message' => 'Order has been saved successfully !'
+        ]);
     }
 
     public function render()
