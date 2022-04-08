@@ -21,6 +21,19 @@ class Form extends Component
     // Add ordersList listener
     protected $listeners = ['ordersList'];
 
+    // Add validations
+    public function hydrate()
+    {
+        $this->rules = [
+            'customer_id' => 'required',
+            'category_id' => 'required',
+            'product_id' => 'required',
+            'qty' => 'required',
+            'unit_price' => 'required',
+            'total' => 'required'
+        ];
+    }
+
     public function render()
     {
         return view('livewire.orders.form');
