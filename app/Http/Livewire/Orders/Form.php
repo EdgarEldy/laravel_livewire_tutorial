@@ -34,6 +34,12 @@ class Form extends Component
         ];
     }
 
+    // Close modal and reset input fields
+    public function closeModal()
+    {
+        $this->reset();
+    }
+
     public function render()
     {
         return view('livewire.orders.form');
