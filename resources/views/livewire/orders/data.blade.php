@@ -3,8 +3,7 @@
         <thead>
         <tr>
             <th>Id</th>
-            <th>First name</th>
-            <th>Last name</th>
+            <th>Customer name</th>
             <th>Product name</th>
             <th>Unit Price</th>
             <th>Quantity</th>
@@ -16,7 +15,7 @@
         @foreach($orders as $order)
             <tr>
                 <td>{{$order->id}} </td>
-                <td>{{$order->customer->first_name}}</td>
+                <td>{{$order->customer->full_name}}</td
                 <td>{{ $order->customer->last_name }}</td>
                 <td>{{ $order->product->product_name }}</td>
                 <td>{{ $order->product->unit_price }}</td>
