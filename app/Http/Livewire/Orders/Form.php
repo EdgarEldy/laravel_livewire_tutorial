@@ -66,6 +66,9 @@ class Form extends Component
         $this->dispatchBrowserEvent('notify-success', [
             'message' => 'Order has been saved successfully !'
         ]);
+
+        // Show orders data after submit
+        $this->emit('ordersList');
     }
 
     public function render()
