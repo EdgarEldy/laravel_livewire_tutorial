@@ -10,9 +10,8 @@ class Form extends Component
     // Add orders public properties
     public $order_id;
     public $customer_id;
-    public $category;
+    public $category_id;
     public $product_id;
-    public $product;
     public $qty;
     public $total;
 
