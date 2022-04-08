@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Orders;
 use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Order;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Form extends Component
@@ -71,11 +73,23 @@ class Form extends Component
         $this->emit('ordersList');
     }
 
+    // Getting products once a user select a category
+    public function getProductsByCategoryId()
+    {
+        $products = DB::table('products')
+            ->join('categories', 'products.category_id', '=', 'categories.id')
+            ->where('categories.id', $this->category_id)
+            ->get();
+
+        return $products;
+    }
+
     public function render()
     {
         return view('livewire.orders.form', [
             'customers' => Customer::all(),
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'products' => $this->getProductsByCategoryId()
         ]);
     }
 }
