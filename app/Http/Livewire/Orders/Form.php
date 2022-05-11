@@ -23,6 +23,9 @@ class Form extends Component
     // Setting up rules
     protected $rules;
 
+    // Add editOrder event
+    protected $listeners = ['editOrder'];
+
     // Add validations
     public function hydrate()
     {
@@ -92,7 +95,7 @@ class Form extends Component
         $this->unit_price = $order->unit_price;
         $this->qty = $order->qty;
         $this->total = $order->total;
-        
+
         $this->dispatchBrowserEvent('open-modal');
     }
 
