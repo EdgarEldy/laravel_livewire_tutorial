@@ -70,6 +70,16 @@
                             </div>
                             @enderror
                         </div>
+                        <div class="form-group">
+                            <label>Qty :</label>
+                            <input type="number" wire:model="qty"
+                                   class="form-control @error('qty') is-invalid @enderror">
+                            @error('qty')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
                         <div class="modal-footer">
                             <button type="button" wire:click="closeModal" class="btn btn-secondary"
                                     data-dismiss="modal">
