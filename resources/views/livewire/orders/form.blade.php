@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group">
                             <label for="categories">Select a product</label>
-                            <select name="category_id" wire:model="product_id" class="form-control">
+                            <select name="product_id" wire:model="product_id" class="form-control">
                                 <option value="">---</option>
                                 @foreach($products as $product)
                                     <option value="{{ $product->id }}">{{ $product->product_name }}</option>
