@@ -23,9 +23,6 @@ class Form extends Component
     // Setting up rules
     protected $rules;
 
-    // Add ordersList listener
-    protected $listeners = ['ordersList'];
-
     // Add validations
     public function hydrate()
     {
@@ -72,12 +69,6 @@ class Form extends Component
 
         // Show orders data after submit
         $this->emit('ordersList');
-    }
-
-    // Add constructor
-    public function mount()
-    {
-
     }
 
     // Getting products once a user select a category
