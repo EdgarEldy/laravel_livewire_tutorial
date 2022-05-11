@@ -53,7 +53,7 @@ class Form extends Component
         $order = $this->order_id ? Order::find($this->order_id) : new Order();
 
         $order->customer_id = $this->customer_id;
-        $order->product_id = $this->product;
+        $order->product_id = $this->product_id;
         $order->qty = $this->qty;
         $order->total = $this->total;
 
