@@ -96,7 +96,10 @@ class Form extends Component
     {
         // Get unit price without loading order form
         $product = Product::find($this->product_id);
-        $this->unit_price = isset($product->id) ? $product->unit_price : '';
+        $this->unit_price = isset($product->id) ? $product->unit_price : 0;
+
+        // Calculate the total
+        $this->total = $this->qty > 0 ? $this->qty * $this->unit_price : 1;
 
         return view('livewire.orders.form', [
             'customers' => Customer::all(),
