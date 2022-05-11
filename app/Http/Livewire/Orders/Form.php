@@ -17,6 +17,7 @@ class Form extends Component
     public $category_id;
     public $product_id;
     public $qty;
+    public $unit_price;
     public $total;
 
     // Setting up rules
