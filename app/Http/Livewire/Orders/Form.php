@@ -77,7 +77,7 @@ class Form extends Component
     // Add constructor
     public function mount()
     {
-        
+
     }
 
     // Getting products once a user select a category
@@ -86,6 +86,7 @@ class Form extends Component
         $products = DB::table('products')
             ->join('categories', 'products.category_id', '=', 'categories.id')
             ->where('categories.id', $this->category_id)
+            ->select(DB::raw('products.id, product_name, unit_price'))
             ->get();
 
         return $products;
