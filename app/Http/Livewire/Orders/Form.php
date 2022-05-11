@@ -16,7 +16,7 @@ class Form extends Component
     public $customer_id;
     public $category_id;
     public $product_id;
-    public $qty;
+    public $qty = 1;
     public $unit_price;
     public $total;
 
