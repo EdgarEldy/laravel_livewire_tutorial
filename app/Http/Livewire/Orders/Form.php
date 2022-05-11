@@ -94,6 +94,10 @@ class Form extends Component
 
     public function render()
     {
+        // Get unit price without loading order form
+        $product = Product::find($this->product_id);
+        $this->unit_price = isset($product->id) ? $product->unit_price : '';
+
         return view('livewire.orders.form', [
             'customers' => Customer::all(),
             'categories' => Category::all(),
