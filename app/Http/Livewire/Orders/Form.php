@@ -62,7 +62,7 @@ class Form extends Component
         // Reset validations
         $this->reset();
 
-        $this->dispatchBrowserEvent('close-modal',[
+        $this->dispatchBrowserEvent('close-modal', [
             'modalname' => 'modalFormOrder'
         ]);
 
@@ -72,6 +72,12 @@ class Form extends Component
 
         // Show orders data after submit
         $this->emit('ordersList');
+    }
+
+    // Add constructor
+    public function mount()
+    {
+        
     }
 
     // Getting products once a user select a category
