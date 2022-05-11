@@ -83,6 +83,19 @@ class Form extends Component
         return $products;
     }
 
+    // Get order to update in the modal
+    public function editOrder(Order $order)
+    {
+        $this->customer_id = $order->customer_id;
+        $this->category_id = $order->category_id;
+        $this->product_id = $order->product_id;
+        $this->unit_price = $order->unit_price;
+        $this->qty = $order->qty;
+        $this->total = $order->total;
+        
+        $this->dispatchBrowserEvent('open-modal');
+    }
+
     public function render()
     {
         // Get unit price without loading order form
