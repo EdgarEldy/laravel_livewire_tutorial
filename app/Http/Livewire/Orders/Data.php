@@ -20,6 +20,17 @@ class Data extends Component
         return $orders;
     }
 
+    // Remove an order
+    public function delete(Order $order)
+    {
+        $order->delete();
+
+        // Add notify flash message
+        $this->dispatchBrowserEvent('notify-success', [
+            'message' => 'Order has been removed successfully !'
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.orders.data', [

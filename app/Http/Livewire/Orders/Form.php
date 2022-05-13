@@ -16,14 +16,15 @@ class Form extends Component
     public $customer_id;
     public $category_id;
     public $product_id;
-    public $qty;
+    public $qty = 1;
+    public $unit_price;
     public $total;
 
     // Setting up rules
     protected $rules;
 
-    // Add ordersList listener
-    protected $listeners = ['ordersList'];
+    // Add editOrder event
+    protected $listeners = ['editOrder'];
 
     // Add validations
     public function hydrate()
@@ -52,7 +53,7 @@ class Form extends Component
         $order = $this->order_id ? Order::find($this->order_id) : new Order();
 
         $order->customer_id = $this->customer_id;
-        $order->product_id = $this->product;
+        $order->product_id = $this->product_id;
         $order->qty = $this->qty;
         $order->total = $this->total;
 
@@ -61,7 +62,7 @@ class Form extends Component
         // Reset validations
         $this->reset();
 
-        $this->dispatchBrowserEvent('close-modal',[
+        $this->dispatchBrowserEvent('close-modal', [
             'modalname' => 'modalFormOrder'
         ]);
 
@@ -79,13 +80,35 @@ class Form extends Component
         $products = DB::table('products')
             ->join('categories', 'products.category_id', '=', 'categories.id')
             ->where('categories.id', $this->category_id)
+            ->select(DB::raw('products.id, product_name, unit_price'))
             ->get();
 
         return $products;
     }
 
+    // Get order to update in the modal
+    public function editOrder(Order $order)
+    {
+        $this->order_id = $order->id;
+        $this->customer_id = $order->customer_id;
+        $this->category_id = $order->category_id;
+        $this->product_id = $order->product_id;
+        $this->unit_price = $order->unit_price;
+        $this->qty = $order->qty;
+        $this->total = $order->total;
+
+        $this->dispatchBrowserEvent('open-modal');
+    }
+
     public function render()
     {
+        // Get unit price without loading order form
+        $product = Product::find($this->product_id);
+        $this->unit_price = isset($product->id) ? $product->unit_price : 0;
+
+        // Calculate the total
+        $this->total = $this->qty > 0 ? $this->qty * $this->unit_price : 1;
+
         return view('livewire.orders.form', [
             'customers' => Customer::all(),
             'categories' => Category::all(),

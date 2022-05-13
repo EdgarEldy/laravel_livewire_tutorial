@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group">
                             <label for="categories">Select a product</label>
-                            <select name="category_id" wire:model="product_id" class="form-control">
+                            <select name="product_id" wire:model="product_id" class="form-control">
                                 <option value="">---</option>
                                 @foreach($products as $product)
                                     <option value="{{ $product->id }}">{{ $product->product_name }}</option>
@@ -65,6 +65,26 @@
                             <input type="number" wire:model="unit_price"
                                    class="form-control @error('unit_price') is-invalid @enderror">
                             @error('unit_price')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Qty :</label>
+                            <input type="number" wire:model="qty"
+                                   class="form-control @error('qty') is-invalid @enderror">
+                            @error('qty')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Total :</label>
+                            <input type="number" wire:model="total"
+                                   class="form-control @error('total') is-invalid @enderror">
+                            @error('total')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
