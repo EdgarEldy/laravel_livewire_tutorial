@@ -30,3 +30,6 @@ require __DIR__ . '/products.php';
 
 // Call customers route file
 require __DIR__ . '/customers.php';
+
+// Call orders route file
+require __DIR__ . '/orders.php';
