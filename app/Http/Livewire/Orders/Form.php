@@ -89,6 +89,7 @@ class Form extends Component
     // Get order to update in the modal
     public function editOrder(Order $order)
     {
+        $this->order_id = $order->id;
         $this->customer_id = $order->customer_id;
         $this->category_id = $order->category_id;
         $this->product_id = $order->product_id;
