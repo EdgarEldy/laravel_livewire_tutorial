@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Permission;
 use Illuminate\Database\Seeder;
 
 class PermissionSeeder extends Seeder
@@ -23,5 +24,13 @@ class PermissionSeeder extends Seeder
             'User',
             'Permission',
         ];
+
+        // Save permissions
+        foreach ($permissions as $permission) {
+            $permission = Permission::firstOrNew([
+                'nom_permission' => $permission
+            ]);
+            $permission->save();
+        }
     }
 }
