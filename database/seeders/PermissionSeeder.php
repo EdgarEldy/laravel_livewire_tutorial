@@ -39,6 +39,14 @@ class PermissionSeeder extends Seeder
                 'Update',
                 'Delete'
             ];
+
+            // Save sub permissions
+            foreach ($sub_permissions as $sub_permission) {
+                Permission::firstOrCreate([
+                    'parent_id' => $permission->id,
+                    'permission_name' => $sub_permission
+                ]);
+            }
         }
     }
 }
