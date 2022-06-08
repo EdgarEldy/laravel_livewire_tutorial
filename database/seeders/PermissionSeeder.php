@@ -28,7 +28,7 @@ class PermissionSeeder extends Seeder
         // Save permissions
         foreach ($permissions as $permission) {
             $permission = Permission::firstOrNew([
-                'nom_permission' => $permission
+                'name' => $permission
             ]);
             $permission->save();
 
@@ -44,7 +44,7 @@ class PermissionSeeder extends Seeder
             foreach ($sub_permissions as $sub_permission) {
                 Permission::firstOrCreate([
                     'parent_id' => $permission->id,
-                    'permission_name' => $sub_permission
+                    'name' => $sub_permission
                 ]);
             }
         }
