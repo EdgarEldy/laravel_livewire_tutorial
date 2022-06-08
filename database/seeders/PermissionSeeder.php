@@ -31,6 +31,14 @@ class PermissionSeeder extends Seeder
                 'nom_permission' => $permission
             ]);
             $permission->save();
+
+            // Creating sub permissions
+            $sub_permissions = [
+                'Create',
+                'Read',
+                'Update',
+                'Delete'
+            ];
         }
     }
 }
