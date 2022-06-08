@@ -13,6 +13,15 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // Creating permissions array
+        $permissions = [
+            'Category',
+            'Product',
+            'Customer',
+            'Order',
+            'Role',
+            'User',
+            'Permission',
+        ];
     }
 }
