@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 
 class RoleSeeder extends Seeder
@@ -13,6 +14,16 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Role::upsert([
+            [
+                'role_name' => 'Admin'
+            ],
+            [
+                'role_name' => 'User'
+            ]
+        ],
+            [
+                'role_name'
+            ]);
     }
 }
