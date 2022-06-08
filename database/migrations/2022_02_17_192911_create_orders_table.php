@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->foreignId('product_id')->constrained('products');
             $table->integer('qty');
             $table->float('total');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->foreignId('category_id')->constrained('categories');
             $table->string('product_name', 100);
             $table->float('unit_price');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
