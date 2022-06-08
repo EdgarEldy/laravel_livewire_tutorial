@@ -17,7 +17,6 @@ class CreatePermissionRolesTable extends Migration
             $table->id();
             $table->foreignId('permission_id')->constrained('permissions');
             $table->foreignId('role_id')->constrained('roles');
-            $table->primary(['permission_id', 'role_id']);
         });
     }
 
