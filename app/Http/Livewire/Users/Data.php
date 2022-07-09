@@ -10,6 +10,9 @@ class Data extends Component
     // Setting up paginations
     use WithPagination;
 
+    // Add usersList event listener
+    protected $listeners = ['usersList'];
+
     public function render()
     {
         return view('livewire.users.data');
