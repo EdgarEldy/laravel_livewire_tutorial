@@ -10,4 +10,10 @@ class UserController extends Controller
     public function __construct()
     {
     }
+
+    // GET users/index view
+    public function index()
+    {
+        return view('users.index');
+    }
 }
