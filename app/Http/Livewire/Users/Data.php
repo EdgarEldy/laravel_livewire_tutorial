@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Users;
 
+use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -12,6 +13,13 @@ class Data extends Component
 
     // Add usersList event listener
     protected $listeners = ['usersList'];
+
+    // GET users 
+    public function usersList()
+    {
+        $users = User::paginate(10);
+        return $users;
+    }
 
     public function render()
     {
