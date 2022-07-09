@@ -14,7 +14,7 @@ class Data extends Component
     // Add usersList event listener
     protected $listeners = ['usersList'];
 
-    // GET users 
+    // GET users
     public function usersList()
     {
         $users = User::paginate(10);
@@ -23,6 +23,8 @@ class Data extends Component
 
     public function render()
     {
-        return view('livewire.users.data');
+        return view('livewire.users.data', [
+            'users' => $this->usersList()
+        ]);
     }
 }
