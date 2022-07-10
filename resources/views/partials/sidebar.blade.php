@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="" href="#">
+                    <a class="" href="{{ route('users.index') }}">
                         <svg class="glyph stroked chevron-right">
                             <use xlink:href="#stroked-chevron-right">
                             </use>
