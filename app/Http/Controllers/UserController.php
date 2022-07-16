@@ -16,4 +16,10 @@ class UserController extends Controller
     {
         return view('users.index');
     }
+
+    // Get users/create view
+    public function create()
+    {
+        return view('auth.register');
+    }
 }
