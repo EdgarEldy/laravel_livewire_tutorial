@@ -50,7 +50,7 @@
             </a>
             <ul class="children collapse" id="sub-item-2">
                 <li>
-                    <a class="" href="#">
+                    <a class="" href="{{ route('roles.index') }}">
                         <svg class="glyph stroked chevron-right">
                             <use xlink:href="#stroked-chevron-right">
                             </use>
