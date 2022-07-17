@@ -10,6 +10,8 @@
                 </button>
                 <!-- Roles data -->
                 <livewire:roles.data />
+                <!-- ModelFormRole -->
+                <livewire:roles.form />
             </div>
         </div>
     </div>
