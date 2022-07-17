@@ -10,6 +10,9 @@ class Form extends Component
     public $role_id;
     public $role_name;
 
+    // Add editRole event listener
+    protected $listeners = ['editRole'];
+
     public function render()
     {
         return view('livewire.roles.form');
