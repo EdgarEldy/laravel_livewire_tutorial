@@ -13,6 +13,16 @@ class Form extends Component
     // Add editRole event listener
     protected $listeners = ['editRole'];
 
+    // Setting validation rules
+    protected $rules;
+
+    public function hydrate()
+    {
+        $this->rules = [
+            'role_name' => 'required'
+        ];
+    }
+
     public function render()
     {
         return view('livewire.roles.form');
