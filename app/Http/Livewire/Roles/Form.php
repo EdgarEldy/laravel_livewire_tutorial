@@ -23,6 +23,12 @@ class Form extends Component
         ];
     }
 
+    // Creating closeModal function and call reset function
+    public function closeModal()
+    {
+        $this->reset();
+    }
+
     public function render()
     {
         return view('livewire.roles.form');
