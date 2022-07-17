@@ -9,6 +9,7 @@
                     New
                 </button>
                 <!-- Roles data -->
+                <livewire:roles.data />
             </div>
         </div>
     </div>
