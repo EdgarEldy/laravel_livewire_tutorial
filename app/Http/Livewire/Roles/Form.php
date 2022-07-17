@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Roles;
 
+use App\Models\Role;
 use Livewire\Component;
 
 class Form extends Component
@@ -27,6 +28,32 @@ class Form extends Component
     public function closeModal()
     {
         $this->reset();
+    }
+
+    // Add or update a role function
+    public function submit()
+    {
+        // Validate inputs
+        $this->validate();
+
+        $role = $this->role_id ? Role::find($this->role_id) : new Role();
+
+        $role->role_name = $this->role_name;
+        $role->save();
+
+        // Reset inputs
+        $this->reset();
+
+        $this->dispatchBrowserEvent('close-modal', [
+            'modalname' => "modalFormRole"
+        ]);
+
+        $this->dispatchBrowserEvent('notify-success', [
+            'message' => "Role has been saved successfully !"
+        ]);
+
+        $this->emit('rolesList');
+
     }
 
     public function render()
