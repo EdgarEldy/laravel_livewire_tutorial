@@ -21,6 +21,17 @@ class Data extends Component
         return $roles;
     }
 
+    // Remove a role
+    public function delete(Role $role)
+    {
+        $role->delete();
+
+        // Add notify flash message
+        $this->dispatchBrowserEvent('notify-success', [
+            'message' => 'Role has been removed successfully !'
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.roles.data', [
