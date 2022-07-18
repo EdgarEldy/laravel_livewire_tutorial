@@ -56,6 +56,15 @@ class Form extends Component
 
     }
 
+    // Get role to update in the modal
+    public function editRole(Role $role)
+    {
+        $this->role_id = $role->id;
+        $this->role_name = $role->role_name;
+
+        $this->dispatchBrowserEvent('open-modal');
+    }
+
     public function render()
     {
         return view('livewire.roles.form');
