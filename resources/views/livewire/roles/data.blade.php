@@ -14,6 +14,13 @@
                 <td>{{$role->role_name}}</td>
                 <td>
                     <div class="card-footer">
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#modalFormRole"
+                                wire:click="$emit('editRole', {{ $role->id }})">Edit
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm"
+                                wire:click="$emit('popupDelete', {{ $role->id }})">Delete
+                        </button>
                     </div>
                 </td>
             </tr>
