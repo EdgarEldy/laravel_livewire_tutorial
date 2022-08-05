@@ -70,14 +70,15 @@
             </ul>
         </li>
         <li>
-            <a href="#">
-                <svg class="glyph stroked male-user">
-                    <use xlink:href="#stroked-cancel"></use>
-                </svg>
-                Logout
-            </a>
-            <form id="logout-form" action="#" method="POST" style="display: none;">
+            <form action="{{ route('logout') }}" method="POST">
                 @csrf
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                this.closest('form').submit();">
+                    <svg class="glyph stroked male-user">
+                        <use xlink:href="#stroked-cancel"></use>
+                    </svg>
+                    Logout
+                </a>
             </form>
         </li>
     </ul>
