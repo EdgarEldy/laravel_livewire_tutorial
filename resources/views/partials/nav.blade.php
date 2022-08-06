@@ -25,13 +25,16 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">
-                            <svg class="glyph stroked male-user">
-                                <use xlink:href="#stroked-cancel"></use>
-                            </svg>
-                            </a>
-
-                            <form id="logout-form" action="#" method="POST" style="display: none;">
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                   this.closest('form').submit();">
+                                    <svg class="glyph stroked male-user">
+                                        <use xlink:href="#stroked-cancel"></use>
+                                    </svg>
+                                    {{ __('Logout') }}
+                                </a>
                             </form>
                         </li>
                     </ul>
