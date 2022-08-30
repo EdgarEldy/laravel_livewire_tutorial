@@ -16,37 +16,7 @@ class PermissionSeeder extends Seeder
     {
         // Creating permissions array
         $permissions = [
-            'Category',
-            'Product',
-            'Customer',
-            'Order',
-            'Role',
-            'User',
-            'Permission',
+
         ];
-
-        // Save permissions
-        foreach ($permissions as $permission) {
-            $permission = Permission::firstOrNew([
-                'name' => $permission
-            ]);
-            $permission->save();
-
-            // Creating sub permissions
-            $sub_permissions = [
-                'Create',
-                'Read',
-                'Update',
-                'Delete'
-            ];
-
-            // Save sub permissions
-            foreach ($sub_permissions as $sub_permission) {
-                Permission::firstOrCreate([
-                    'parent_id' => $permission->id,
-                    'name' => $sub_permission
-                ]);
-            }
-        }
     }
 }
