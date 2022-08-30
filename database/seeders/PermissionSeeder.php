@@ -115,10 +115,10 @@ class PermissionSeeder extends Seeder
             Permission::upsert(
                 [
                     [
-                        'name' => $permission,
+                        'permission_name' => $permission,
                     ],
                 ],
-                ['name']
+                ['permission_name']
             );
         }
 
