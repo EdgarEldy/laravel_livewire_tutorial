@@ -36,6 +36,13 @@ class PermissionSeeder extends Seeder
             'Show customer details',
             'Update a customer',
             'Remove a customer',
+
+            // Orders
+            'Create an order',
+            'Show orders',
+            'Shown order details',
+            'Update an order',
+            'Remove an order',
         ];
     }
 }
