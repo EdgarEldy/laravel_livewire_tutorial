@@ -106,5 +106,8 @@ class PermissionSeeder extends Seeder
 
         // Get the first user
         $user = User::first();
+
+        // Associate admin role with the first user
+        $user->roles()->sync($admin_role->pluck('id')->toArray());
     }
 }
