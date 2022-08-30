@@ -103,5 +103,8 @@ class PermissionSeeder extends Seeder
             ],
             ['email'],
         );
+
+        // Get the first user
+        $user = User::first();
     }
 }
