@@ -74,7 +74,7 @@ class PermissionSeeder extends Seeder
         );
 
         // Get admin role
-        $admin_role = Role::whereName('Admin')->first();
+        $admin_role = Role::whereRoleName('Admin')->first();
 
         // Save users to the database
         User::upsert(
