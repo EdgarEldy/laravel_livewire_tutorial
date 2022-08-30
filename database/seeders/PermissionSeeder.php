@@ -43,6 +43,13 @@ class PermissionSeeder extends Seeder
             'Shown order details',
             'Update an order',
             'Remove an order',
+
+            // Roles
+            'Create a role',
+            'Show roles',
+            'Show role details',
+            'Update a role',
+            'Remove a role',
         ];
     }
 }
