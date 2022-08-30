@@ -50,6 +50,13 @@ class PermissionSeeder extends Seeder
             'Show role details',
             'Update a role',
             'Remove a role',
+
+            // Users
+            'Create a user',
+            'Show users',
+            'Show user details',
+            'Update a user',
+            'Remove a user',
         ];
     }
 }
