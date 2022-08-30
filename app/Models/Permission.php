@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Permission extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['permission_name'];
+
+    // Add belongsToMany relationship to Role model
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
 }
