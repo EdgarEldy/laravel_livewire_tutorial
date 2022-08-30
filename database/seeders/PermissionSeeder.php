@@ -22,6 +22,13 @@ class PermissionSeeder extends Seeder
             'Show category details',
             'Update a category',
             'Remove a category',
+
+            // Products
+            'Create a product',
+            'Show products',
+            'Show product details',
+            'Update a product',
+            'Remove a product',
         ];
     }
 }
