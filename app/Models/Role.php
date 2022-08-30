@@ -15,4 +15,10 @@ class Role extends Model
      * @var array
      */
     protected $fillable = ['role_name'];
+
+    // Add belongsToMany relationship to Permission model
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
+    }
 }
