@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Permission;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 
 class PermissionSeeder extends Seeder
@@ -58,5 +59,15 @@ class PermissionSeeder extends Seeder
             'Update a user',
             'Remove a user',
         ];
+
+        // Save admin role to the database
+        Role::upsert(
+            [
+                [
+                    'role_name' => 'Admin'
+                ]
+            ],
+            ['role_name']
+        );
     }
 }
