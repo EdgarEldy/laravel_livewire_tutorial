@@ -69,5 +69,8 @@ class PermissionSeeder extends Seeder
             ],
             ['role_name']
         );
+
+        // Get admin role
+        $admin_role = Role::whereName('Admin')->first();
     }
 }
