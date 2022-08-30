@@ -16,7 +16,12 @@ class PermissionSeeder extends Seeder
     {
         // Creating permissions array
         $permissions = [
-
+            // categories
+            'Create a category',
+            'Show categories',
+            'Show category details',
+            'Update a category',
+            'Remove a category',
         ];
     }
 }
