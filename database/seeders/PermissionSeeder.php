@@ -109,5 +109,22 @@ class PermissionSeeder extends Seeder
 
         // Associate admin role with the first user
         $user->roles()->sync($admin_role->pluck('id')->toArray());
+
+        // Establish the relationship between permissions and roles
+        foreach ($permissions as $permission) {
+            Permission::upsert(
+                [
+                    [
+                        'name' => $permission,
+                    ],
+                ],
+                ['name']
+            );
+        }
+
+        $admin_permissions = Permission::all();
+
+        $admin_role->permissions()->sync($admin_permissions->pluck('id')->toArray());
+
     }
 }
