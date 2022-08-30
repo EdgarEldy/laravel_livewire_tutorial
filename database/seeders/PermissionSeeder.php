@@ -4,7 +4,10 @@ namespace Database\Seeders;
 
 use App\Models\Permission;
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class PermissionSeeder extends Seeder
 {
@@ -72,5 +75,33 @@ class PermissionSeeder extends Seeder
 
         // Get admin role
         $admin_role = Role::whereName('Admin')->first();
+
+        // Save users to the database
+        User::upsert(
+            [
+                [
+                    'first_name' => 'Admin',
+                    'last_name' => 'Admin',
+                    'tel' => '77777777',
+                    'email' => 'admin@admin.com',
+                    'address' => 'Kajaga',
+                    'email_verified_at' => now(),
+                    'password' => Hash::make('12345678'),
+                    'remember_token' => Str::random(10),
+                ],
+                [
+                    'first_name' => 'User',
+                    'last_name' => 'User',
+                    'tel' => '44444444',
+                    'email' => 'user@user.com',
+                    'address' => 'Kamenge',
+                    'email_verified_at' => now(),
+                    'password' => Hash::make('12345678'),
+                    'remember_token' => Str::random(10),
+                ],
+
+            ],
+            ['email'],
+        );
     }
 }
