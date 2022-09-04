@@ -67,4 +67,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+    // Get user with first name and last name
+    public function getFullNameAttribute()
+    {
+        return "{$this->firt_name} {$this->last_name}";
+    }
+
 }
