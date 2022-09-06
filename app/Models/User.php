@@ -74,4 +74,15 @@ class User extends Authenticatable
         return "{$this->firt_name} {$this->last_name}";
     }
 
+    // Check if the user has permission through role
+    public function hasPermissionThroughRole($permission)
+    {
+        foreach ($permission->roles as $role) {
+            if ($this->roles->contains($role)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
