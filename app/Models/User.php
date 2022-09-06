@@ -95,4 +95,19 @@ class User extends Authenticatable
         }
     }
 
+    // Check if the user has any permission
+    public function hasAnyPermission(array $permissions): bool
+    {
+        $permissions = collect($permissions)->flatten();
+
+        foreach ($permissions as $permission) {
+
+            if ($this->hasPermissionTo($permission)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
