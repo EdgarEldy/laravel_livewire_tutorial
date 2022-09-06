@@ -85,4 +85,14 @@ class User extends Authenticatable
         return false;
     }
 
+    // Check if a user has permission
+    public function hasPermissionTo($permission)
+    {
+        $permission = Permission::with('roles')->whereName($permission)->get();
+
+        foreach ($permission as $perm_name) {
+            return $this->hasPermissionThroughRole($perm_name);
+        }
+    }
+
 }
