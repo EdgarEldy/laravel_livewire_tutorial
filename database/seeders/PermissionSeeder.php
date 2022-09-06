@@ -67,14 +67,14 @@ class PermissionSeeder extends Seeder
         Role::upsert(
             [
                 [
-                    'role_name' => 'Admin'
+                    'name' => 'Admin'
                 ]
             ],
-            ['role_name']
+            ['name']
         );
 
         // Get admin role
-        $admin_role = Role::whereRoleName('Admin')->first();
+        $admin_role = Role::whereName('Admin')->first();
 
         // Save users to the database
         User::upsert(
@@ -115,10 +115,10 @@ class PermissionSeeder extends Seeder
             Permission::upsert(
                 [
                     [
-                        'permission_name' => $permission,
+                        'name' => $permission,
                     ],
                 ],
-                ['permission_name']
+                ['name']
             );
         }
 

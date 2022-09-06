@@ -67,4 +67,47 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class);
     }
+
+    // Get user with first name and last name
+    public function getFullNameAttribute()
+    {
+        return "{$this->firt_name} {$this->last_name}";
+    }
+
+    // Check if the user has permission through role
+    public function hasPermissionThroughRole($permission)
+    {
+        foreach ($permission->roles as $role) {
+            if ($this->roles->contains($role)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Check if a user has permission
+    public function hasPermissionTo($permission)
+    {
+        $permission = Permission::with('roles')->whereName($permission)->get();
+
+        foreach ($permission as $perm_name) {
+            return $this->hasPermissionThroughRole($perm_name);
+        }
+    }
+
+    // Check if the user has any permission
+    public function hasAnyPermission(array $permissions): bool
+    {
+        $permissions = collect($permissions)->flatten();
+
+        foreach ($permissions as $permission) {
+
+            if ($this->hasPermissionTo($permission)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
