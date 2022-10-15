@@ -22,6 +22,7 @@
                                 <svg class="glyph stroked male-user">
                                     <use xlink:href="#stroked-male-user"></use>
                                 </svg>
+                                Welcome, {{ Auth::user()->email }}
                             </a>
                         </li>
                         <li>
