@@ -16,6 +16,22 @@ class Form extends Component
     public $password;
     public $confirm_password;
 
+    // Setting up validation rules
+    public $rules;
+
+    public function hydrate()
+    {
+        $this->rules = [
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'tel' => ['required'],
+            'email' => ['required|email'],
+            'address' => ['required'],
+            'password' => ['required'],
+            'confirm_password' => ['required|same:password'],
+        ];
+    }
+
     public function render()
     {
         return view('livewire.users.form');
