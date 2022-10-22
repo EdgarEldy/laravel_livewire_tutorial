@@ -9,7 +9,7 @@ class Form extends Component
 {
     // Public properties
     public $role_id;
-    public $role_name;
+    public $name;
 
     // Add editRole event listener
     protected $listeners = ['editRole'];
@@ -20,7 +20,7 @@ class Form extends Component
     public function hydrate()
     {
         $this->rules = [
-            'role_name' => 'required'
+            'name' => 'required'
         ];
     }
 
@@ -38,7 +38,7 @@ class Form extends Component
 
         $role = $this->role_id ? Role::find($this->role_id) : new Role();
 
-        $role->role_name = $this->role_name;
+        $role->name = $this->name;
         $role->save();
 
         // Reset inputs
@@ -60,7 +60,7 @@ class Form extends Component
     public function editRole(Role $role)
     {
         $this->role_id = $role->id;
-        $this->role_name = $role->role_name;
+        $this->name = $role->name;
 
         $this->dispatchBrowserEvent('open-modal');
     }

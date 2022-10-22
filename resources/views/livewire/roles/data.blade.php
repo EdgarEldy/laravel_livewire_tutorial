@@ -11,7 +11,7 @@
         @foreach($roles as $role)
             <tr>
                 <td>{{$role->id}} </td>
-                <td>{{$role->role_name}}</td>
+                <td>{{$role->name}}</td>
                 <td>
                     <div class="card-footer">
                         <button type="button" class="btn btn-primary" data-toggle="modal"
