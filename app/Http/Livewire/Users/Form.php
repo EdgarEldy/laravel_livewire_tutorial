@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Users;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class Form extends Component
@@ -38,6 +40,38 @@ class Form extends Component
     public function closeModal()
     {
         $this->reset();
+    }
+
+
+    // Submit function for creating or updating a user
+    public function submit()
+    {
+        // Validate inputs
+        $this->validate();
+
+        $user = $this->user_id ? User::find($this->user_id) : new User();
+
+        $user->first_name = $this->first_name;
+        $user->last_name = $this->last_name;
+        $user->tel = $this->tel;
+        $user->email = $this->email;
+        $user->address = $this->address;
+        $user->password = Hash::make($this->password);
+        $user->save();
+
+        // Reset inputs
+        $this->reset();
+
+        $this->dispatchBrowserEvent('close-modal', [
+            'modalname' => "modalFormUser"
+        ]);
+
+        $this->dispatchBrowserEvent('notify-success', [
+            'message' => "User has been created successfully !"
+        ]);
+
+        $this->emit('usersList');
+
     }
 
     public function render()
