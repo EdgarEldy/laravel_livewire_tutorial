@@ -22,6 +22,10 @@
                 <td>{{ $user->address }}</td>
                 <td>
                     <div class="card-footer">
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#modalFormUser"
+                                wire:click="$emit('editUser', {{ $user->id }})">Edit
+                        </button>
                     </div>
                 </td>
             </tr>
