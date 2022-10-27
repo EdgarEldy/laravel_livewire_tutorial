@@ -28,10 +28,9 @@ class Form extends Component
             'first_name' => ['required'],
             'last_name' => ['required'],
             'tel' => ['required'],
-            'email' => ['required|email'],
+            'email' => ['required'],
             'address' => ['required'],
             'password' => ['required'],
-            'confirm_password' => ['required|same:password'],
         ];
     }
 
