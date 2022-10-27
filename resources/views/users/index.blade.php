@@ -4,7 +4,6 @@
         <div class="panel panel-default">
             <div class="panel-heading">Users list</div>
             <div class="panel-body">
-                <a href="{{ route('users.create') }}" class="btn btn-primary">New</a>
                 <livewire:users.data/>
             </div>
         </div>
