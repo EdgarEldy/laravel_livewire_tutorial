@@ -43,10 +43,10 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
 
-        @this.on('popupDelete', customerId => {
+        @this.on('popupDelete', userId => {
             Swal.fire({
                 icon: 'warning',
-                title: 'Do you want delete this customer ?',
+                title: 'Do you want delete this user ?',
                 showCancelButton: true,
                 confirmButtonColor: '#E11D48',
                 cancelButtonColor: '##1F2937',
@@ -54,7 +54,7 @@
                 cancelButtonText: 'Close'
             }).then((result) => {
                 if (result.value) {
-                @this.call('delete', customerId)
+                @this.call('delete', userId)
                 }
             });
         });
