@@ -21,6 +21,17 @@ class Data extends Component
         return $users;
     }
 
+    // Remove a user
+    public function delete(User $user)
+    {
+        $user->delete();
+
+        // Add notify flash message
+        $this->dispatchBrowserEvent('notify-success', [
+            'message' => 'User has been removed successfully !'
+        ]);
+    }
+
     public function render()
     {
         return view('livewire.users.data', [

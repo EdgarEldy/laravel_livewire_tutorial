@@ -4,8 +4,12 @@
         <div class="panel panel-default">
             <div class="panel-heading">Users list</div>
             <div class="panel-body">
-                <a href="{{ route('users.create') }}" class="btn btn-primary">New</a>
+                <button type="button" data-toggle="modal" data-target="#modalFormUser"
+                        class="btn btn-primary">
+                    New
+                </button>
                 <livewire:users.data/>
+                <livewire:users.form/>
             </div>
         </div>
     </div>

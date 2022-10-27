@@ -22,6 +22,13 @@
                 <td>{{ $user->address }}</td>
                 <td>
                     <div class="card-footer">
+                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#modalFormUser"
+                                wire:click="$emit('editUser', {{ $user->id }})">Edit
+                        </button>
+                        <button type="button" class="btn btn-danger btn-sm"
+                                wire:click="$emit('popupDelete', {{ $user->id }})">Delete
+                        </button>
                     </div>
                 </td>
             </tr>
@@ -36,10 +43,10 @@
     <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function () {
 
-        @this.on('popupDelete', customerId => {
+        @this.on('popupDelete', userId => {
             Swal.fire({
                 icon: 'warning',
-                title: 'Do you want delete this customer ?',
+                title: 'Do you want delete this user ?',
                 showCancelButton: true,
                 confirmButtonColor: '#E11D48',
                 cancelButtonColor: '##1F2937',
@@ -47,7 +54,7 @@
                 cancelButtonText: 'Close'
             }).then((result) => {
                 if (result.value) {
-                @this.call('delete', customerId)
+                @this.call('delete', userId)
                 }
             });
         });
