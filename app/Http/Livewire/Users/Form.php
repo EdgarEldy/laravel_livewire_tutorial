@@ -19,6 +19,9 @@ class Form extends Component
     // Setting up validation rules
     public $rules;
 
+    // Add editUser event listener
+    protected $listeners = ['editUser'];
+
     public function hydrate()
     {
         $this->rules = [
