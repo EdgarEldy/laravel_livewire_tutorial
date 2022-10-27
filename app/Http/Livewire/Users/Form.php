@@ -17,7 +17,7 @@ class Form extends Component
     public $confirm_password;
 
     // Setting up validation rules
-    public $rules;
+    protected $rules;
 
     // Add editUser event listener
     protected $listeners = ['editUser'];
