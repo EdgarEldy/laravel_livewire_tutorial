@@ -9,6 +9,7 @@
                     New
                 </button>
                 <livewire:users.data/>
+                <livewire:users.form/>
             </div>
         </div>
     </div>
