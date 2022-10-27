@@ -26,6 +26,9 @@
                                 data-target="#modalFormUser"
                                 wire:click="$emit('editUser', {{ $user->id }})">Edit
                         </button>
+                        <button type="button" class="btn btn-danger btn-sm"
+                                wire:click="$emit('popupDelete', {{ $user->id }})">Delete
+                        </button>
                     </div>
                 </td>
             </tr>
