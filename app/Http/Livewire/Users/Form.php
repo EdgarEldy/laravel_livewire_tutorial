@@ -74,6 +74,19 @@ class Form extends Component
 
     }
 
+    // Get user's data to update in the modal
+    public function editUser(User $user)
+    {
+        $this->user_id = $user->id;
+        $this->first_name = $user->first_name;
+        $this->last_name = $user->last_name;
+        $this->tel = $user->tel;
+        $this->email = $user->email;
+        $this->address = $user->address;
+
+        $this->dispatchBrowserEvent('open-modal');
+    }
+
     public function render()
     {
         return view('livewire.users.form');
