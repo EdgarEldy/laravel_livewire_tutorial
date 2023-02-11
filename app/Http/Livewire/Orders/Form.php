@@ -91,9 +91,9 @@ class Form extends Component
     {
         $this->order_id = $order->id;
         $this->customer_id = $order->customer_id;
-        $this->category_id = $order->category_id;
+        $this->category_id = $order->product->category_id;
         $this->product_id = $order->product_id;
-        $this->unit_price = $order->unit_price;
+        $this->unit_price = $order->product->unit_price;
         $this->qty = $order->qty;
         $this->total = $order->total;
 
