@@ -63,46 +63,8 @@ class PermissionSeeder extends Seeder
             'Remove a user',
         ];
 
-        // Save admin role to the database
-        Role::upsert(
-            [
-                [
-                    'name' => 'Admin'
-                ]
-            ],
-            ['name']
-        );
-
         // Get admin role
         $admin_role = Role::whereName('Admin')->first();
-
-        // Save users to the database
-        User::upsert(
-            [
-                [
-                    'first_name' => 'Admin',
-                    'last_name' => 'Admin',
-                    'tel' => '77777777',
-                    'email' => 'admin@admin.com',
-                    'address' => 'Kajaga',
-                    'email_verified_at' => now(),
-                    'password' => Hash::make('12345678'),
-                    'remember_token' => Str::random(10),
-                ],
-                [
-                    'first_name' => 'User',
-                    'last_name' => 'User',
-                    'tel' => '44444444',
-                    'email' => 'user@user.com',
-                    'address' => 'Kamenge',
-                    'email_verified_at' => now(),
-                    'password' => Hash::make('12345678'),
-                    'remember_token' => Str::random(10),
-                ],
-
-            ],
-            ['email'],
-        );
 
         // Get the first user
         $user = User::first();
