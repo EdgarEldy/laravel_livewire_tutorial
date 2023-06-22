@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -48,5 +49,8 @@ class UserSeeder extends Seeder
         User::factory()
             ->count(10)
             ->create();
+
+        // Get Admin role
+        $admin_role = Role::whereRoleName('Admin')->first();
     }
 }
