@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Permission;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -58,5 +59,8 @@ class UserSeeder extends Seeder
 
         // Get admin user
         $admin_user = User::whereEmail('admin@gmail.com')->first();
+
+        // Get all parent permissions
+        $all_permissions = Permission::whereNotNull('parent_id')->get()->pluck('id')->all();
     }
 }
