@@ -29,30 +29,52 @@ class PermissionSeeder extends Seeder
             'Permission',
         ];
 
-        // Get admin role
-        $admin_role = Role::whereName('Admin')->first();
-
-        // Get the first user
-        $user = User::first();
-
-        // Associate admin role with the first user
-        $user->roles()->sync($admin_role->pluck('id')->toArray());
-
-        // Establish the relationship between permissions and roles
         foreach ($permissions as $permission) {
-            Permission::upsert(
-                [
-                    [
-                        'name' => $permission,
-                    ],
-                ],
-                ['name']
-            );
+            // Save permissions
+            $permission = Permission::firstOrNew(['permission_name' => $permission]);
+            $permission->save();
+
+            // Create sub_permissions array
+            $sub_permissions = [
+                'View',
+                'Create',
+                'Update',
+                'Delete',
+                'Print',
+                'Block',
+            ];
+
+            // Add sub_permissions to permissions
+            foreach ($sub_permissions as $sub_permission) {
+                if ($sub_permission == 'Print') {
+                    if (in_array($permission->permission_name, [
+                        'Category',
+                        'Product',
+                        'Customer',
+                        'Order',
+                        'Role',
+                        'User',
+                        'Permission',
+                    ])) {
+                        Permission::firstOrCreate([
+                            'parent_id' => $permission->id,
+                            'permission_name' => $sub_permission
+                        ]);
+                    }
+                } elseif ($sub_permission == 'Block') {
+                    if (in_array($permission->permission_name, ['User',])) {
+                        Permission::firstOrCreate([
+                            'parent_id' => $permission->id,
+                            'permission_name' => $sub_permission
+                        ]);
+                    }
+                } else {
+                    Permission::firstOrCreate([
+                        'parent_id' => $permission->id,
+                        'permission_name' => $sub_permission
+                    ]);
+                }
+            }
         }
-
-        $admin_permissions = Permission::all();
-
-        $admin_role->permissions()->sync($admin_permissions->pluck('id')->toArray());
-
     }
 }
