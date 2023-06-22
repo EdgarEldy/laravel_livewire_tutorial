@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Permission;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -43,5 +45,28 @@ class UserSeeder extends Seeder
             ],
             ['email'],
         );
+
+        // Add 10 fake users
+        User::factory()
+            ->count(10)
+            ->create();
+
+        // Get Admin role
+        $admin_role = Role::whereRoleName('Admin')->first();
+
+        // Get User role
+        $user_role = Role::whereRoleName('User')->first();
+
+        // Get admin user
+        $admin_user = User::whereEmail('admin@gmail.com')->first();
+
+        // Get all permissions
+        $all_permissions = Permission::whereNotNull('parent_id')->get()->pluck('id')->all();
+
+        // Assign all permissions to the admin role
+        $admin_role->permissions()->sync($all_permissions);
+
+        // Assign admin role to the admin user
+        $admin_user->roles()->sync([$admin_role->id]);
     }
 }

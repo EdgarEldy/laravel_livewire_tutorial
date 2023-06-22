@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
             CustomerSeeder::class,
             OrderSeeder::class,
             RoleSeeder::class,
-            UserSeeder::class,
             PermissionSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
