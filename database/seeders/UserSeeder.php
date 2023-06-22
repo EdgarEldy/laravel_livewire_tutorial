@@ -65,5 +65,8 @@ class UserSeeder extends Seeder
 
         // Assign all permissions to the admin role
         $admin_role->permissions()->sync($all_permissions);
+
+        // Assign admin role to the admin user
+        $admin_user->roles()->sync([$admin_role->id]);
     }
 }
