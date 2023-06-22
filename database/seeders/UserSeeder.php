@@ -60,7 +60,7 @@ class UserSeeder extends Seeder
         // Get admin user
         $admin_user = User::whereEmail('admin@gmail.com')->first();
 
-        // Get all parent permissions
+        // Get all permissions
         $all_permissions = Permission::whereNotNull('parent_id')->get()->pluck('id')->all();
 
         // Assign all permissions to the admin role
