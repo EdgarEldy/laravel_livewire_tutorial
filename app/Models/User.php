@@ -65,7 +65,7 @@ class User extends Authenticatable
     // Add belongsToMany relationship to Role model
     public function roles()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
     }
 
     // Get user with first name and last name
