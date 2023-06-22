@@ -14,6 +14,18 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        // Add roles seeder
+        $roles = [
+            'Admin',
+            'User'
+        ];
+
+        foreach ($roles as $role) {
+            $role = Role::firstOrNew([
+                'role_name' => $role
+            ]);
+
+            $role->save();
+        }
     }
 }

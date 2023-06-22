@@ -15,7 +15,8 @@ class CreatePermissionsTable extends Migration
     {
         Schema::create('permissions', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
+            $table->foreignId('parent_id')->nullable()->constrained('permissions')->cascadeOnDelete();
+            $table->string('permission_name', 100);
             $table->timestamps();
         });
     }

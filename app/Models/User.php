@@ -65,7 +65,7 @@ class User extends Authenticatable
     // Add belongsToMany relationship to Role model
     public function roles()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
     }
 
     // Get user with first name and last name
@@ -86,13 +86,19 @@ class User extends Authenticatable
     }
 
     // Check if a user has permission
-    public function hasPermissionTo($permission)
+    public function hasPermissionTo($permission_name, $parent_id)
     {
-        $permission = Permission::with('roles')->whereName($permission)->get();
+        $permission = Permission::with('roles')
+            ->where('permission_name', '=', $permission_name)
+            ->where('parent_id', '=', $parent_id)
+            ->first();
 
-        foreach ($permission as $perm_name) {
-            return $this->hasPermissionThroughRole($perm_name);
+        foreach ($permission->roles as $role) {
+            if ($this->roles->contains($role)) {
+                return true;
+            }
         }
+        return false;
     }
 
     // Check if the user has any permission
