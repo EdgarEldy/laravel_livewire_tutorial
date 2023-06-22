@@ -62,5 +62,8 @@ class UserSeeder extends Seeder
 
         // Get all parent permissions
         $all_permissions = Permission::whereNotNull('parent_id')->get()->pluck('id')->all();
+
+        // Assign all permissions to the admin role
+        $admin_role->permissions()->sync($all_permissions);
     }
 }
