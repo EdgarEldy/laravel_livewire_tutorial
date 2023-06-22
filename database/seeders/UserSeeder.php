@@ -43,5 +43,10 @@ class UserSeeder extends Seeder
             ],
             ['email'],
         );
+
+        // Add 10 fake users
+        User::factory()
+            ->count(10)
+            ->create();
     }
 }
