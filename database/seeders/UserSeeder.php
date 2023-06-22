@@ -52,5 +52,8 @@ class UserSeeder extends Seeder
 
         // Get Admin role
         $admin_role = Role::whereRoleName('Admin')->first();
+
+        // Get User role
+        $user_role = Role::whereRoleName('User')->first();
     }
 }
