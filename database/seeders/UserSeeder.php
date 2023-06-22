@@ -55,5 +55,8 @@ class UserSeeder extends Seeder
 
         // Get User role
         $user_role = Role::whereRoleName('User')->first();
+
+        // Get admin user
+        $admin_user = User::whereEmail('admin@gmail.com')->first();
     }
 }
