@@ -20,8 +20,8 @@
                     <form wire:submit.prevent="submit">
                         <div class="form-group">
                             <label>Role name :</label>
-                            <input type="text" wire:model="name"
-                                   class="form-control @error('name') is-invalid @enderror">
+                            <input type="text" wire:model="role_name"
+                                   class="form-control @error('role_name') is-invalid @enderror">
                             @error('role_name')
                             <div class="invalid-feedback">
                                 {{ $message }}
