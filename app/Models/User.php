@@ -24,8 +24,11 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'tel',
         'email',
+        'address',
         'password',
     ];
 
@@ -58,4 +61,59 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    // Add belongsToMany relationship to Role model
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
+    }
+
+    // Get user with first name and last name
+    public function getFullNameAttribute()
+    {
+        return "{$this->firt_name} {$this->last_name}";
+    }
+
+    // Check if the user has permission through role
+    public function hasPermissionThroughRole($permission)
+    {
+        foreach ($permission->roles as $role) {
+            if ($this->roles->contains($role)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Check if a user has permission
+    public function hasPermissionTo($permission_name, $parent_id)
+    {
+        $permission = Permission::with('roles')
+            ->where('permission_name', '=', $permission_name)
+            ->where('parent_id', '=', $parent_id)
+            ->first();
+
+        foreach ($permission->roles as $role) {
+            if ($this->roles->contains($role)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Check if the user has any permission
+    public function hasAnyPermission(array $permissions): bool
+    {
+        $permissions = collect($permissions)->flatten();
+
+        foreach ($permissions as $permission) {
+
+            if ($this->hasPermissionTo($permission)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
