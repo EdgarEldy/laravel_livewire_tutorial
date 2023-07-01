@@ -5,12 +5,12 @@
                     <use xlink:href="#stroked-dashboard-dial"></use>
                 </svg>
                 Dashboard</a></li>
-        <li><a href="#">
+        <li><a href="{{ route('orders.index') }}">
                 <svg class="glyph stroked calendar">
                     <use xlink:href="#stroked-calendar"></use>
                 </svg>
                 Orders</a></li>
-        <li><a href="#">
+        <li><a href="{{ route('customers.index') }}">
                 <svg class="glyph stroked clock">
                     <use xlink:href="#stroked-clock"></use>
                 </svg>
@@ -50,7 +50,7 @@
             </a>
             <ul class="children collapse" id="sub-item-2">
                 <li>
-                    <a class="" href="#">
+                    <a class="" href="{{ route('roles.index') }}">
                         <svg class="glyph stroked chevron-right">
                             <use xlink:href="#stroked-chevron-right">
                             </use>
@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="" href="#">
+                    <a class="" href="{{ route('users.index') }}">
                         <svg class="glyph stroked chevron-right">
                             <use xlink:href="#stroked-chevron-right">
                             </use>
@@ -70,14 +70,15 @@
             </ul>
         </li>
         <li>
-            <a href="#">
-                <svg class="glyph stroked male-user">
-                    <use xlink:href="#stroked-cancel"></use>
-                </svg>
-                Logout
-            </a>
-            <form id="logout-form" action="#" method="POST" style="display: none;">
+            <form action="{{ route('logout') }}" method="POST">
                 @csrf
+                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                this.closest('form').submit();">
+                    <svg class="glyph stroked male-user">
+                        <use xlink:href="#stroked-cancel"></use>
+                    </svg>
+                    Logout
+                </a>
             </form>
         </li>
     </ul>

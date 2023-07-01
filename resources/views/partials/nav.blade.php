@@ -22,16 +22,21 @@
                                 <svg class="glyph stroked male-user">
                                     <use xlink:href="#stroked-male-user"></use>
                                 </svg>
+                                Welcome, {{ Auth::user()->email }}
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">
-                            <svg class="glyph stroked male-user">
-                                <use xlink:href="#stroked-cancel"></use>
-                            </svg>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                   document.getElementById('logout-form').submit();">
+                                <svg class="glyph stroked male-user">
+                                    <use xlink:href="#stroked-cancel"></use>
+                                </svg>
+                                {{ __('Logout') }}
                             </a>
 
-                            <form id="logout-form" action="#" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
                             </form>
                         </li>
                     </ul>
